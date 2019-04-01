@@ -9,15 +9,15 @@ public class Cart extends Bill{
     //one cart one bill
     public List<Item> inCart = new ArrayList<Item>();
     public List<Integer> quant = new ArrayList<Integer>();
-    public int noOfItems=0;
+    public int noOfItems = 0;
     public void updateCart(Item a,int q ){
       //write your code here
       //------------
-      //------------
+      //------------    	
     	inCart.add(a);
     	quant.add(q);
-   
-
+    	noOfItems++;
+  // System.out.println(inCart.get(0).itemName+","+quant);
     }
     public int totalAmt=0;
     public void finalizeCart(String name){
@@ -32,6 +32,10 @@ public class Cart extends Bill{
     	int total=0;
 //    	write your code here!!!
 //    	----------------------
+    	for(int i = 0;i<noOfItems;i++)
+    	{
+    	total += quant.get(i)*inCart.get(i).mrp;
+    	}
     	return total;
     	
     }
